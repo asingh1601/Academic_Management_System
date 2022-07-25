@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Result of Student</title>
+	<link rel="icon" href="/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <style>
+        body {
+            background-color: rgb(247, 252, 255);
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #02283a;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+
+        .padding {
+            padding: 3rem !important
+        }
+
+
+        @media only screen and (min-width: 1400px) {
+            p {
+                font-size: 14px
+            }
+        }
+
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #f9f9fa;
+        }
+
+        .student-profile .card {
+            border-radius: 10px;
+        }
+
+        .student-profile .card .card-header .profile_img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+
+        .student-profile .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .student-profile .card p {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .student-profile .table th,
+        .student-profile .table td {
+            font-size: 14px;
+            padding: 5px 10px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+        <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large;">Student's Marks</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link"  href="/res_search"><i class="fas fa-home"></i> Home</a>
+            </li>
+        </ul>
+    </header>
+
+
+
+
+    <div id="main">
+        <!-- Student Profile -->
+        <div class="student-profile py-4">
+            <div class="container">
+                <div class="row rollnum" style="text-align: center;">
+                        <h4 >Roll number </h4>
+                        <h5 ><%= username %></h5>
+                </div>
+                <div class="row " style="margin-top: 20px;">
+                    
+                    <div class="col-lg-8 center" style="margin: auto;" >
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent border-0" style="text-align: center;">
+                                <h3 class="mb-0">Core Subjects</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered" style="text-align: center;">
+                                    <tr>
+                                        <th width="20%">Subject Name</th>
+                                        <th width="14%">C1</th>
+                                        <th width="14%">C2</th>
+                                        <th width="14%">C3</th>
+                                        <th width="14%">Total</th>
+                                        <th width="14%">CGPA</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= sub1 %></td>
+                                        <td width="14%"><%= c1_sub1 %></td>
+                                        <td width="14%"><%= c2_sub1 %></td>
+                                        <td width="14%"><%= c3_sub1 %></td>
+                                        <td width="14%"><%= c1_sub1+c2_sub1+c3_sub1 %></td>
+                                        <td width="14%"><%= (c1_sub1+c2_sub1+c3_sub1)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= sub2 %></td>
+                                        <td width="14%"><%= c1_sub2 %></td>
+                                        <td width="14%"><%= c2_sub2 %></td>
+                                        <td width="14%"><%= c3_sub2 %></td>
+                                        <td width="14%"><%= c1_sub2+c2_sub2+c3_sub2 %></td>
+                                        <td width="14%"><%= (c1_sub2+c2_sub2+c3_sub2)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= sub3 %></td>
+                                        <td width="14%"><%= c1_sub3 %></td>
+                                        <td width="14%"><%= c2_sub3 %></td>
+                                        <td width="14%"><%= c3_sub3 %></td>
+                                        <td width="14%"><%= c1_sub3+c2_sub2+c3_sub3 %></td>
+                                        <td width="14%"><%= (c1_sub3+c2_sub3+c3_sub3)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= sub4 %></td>
+                                        <td width="14%"><%= c1_sub4 %></td>
+                                        <td width="14%"><%= c2_sub4 %></td>
+                                        <td width="14%"><%= c3_sub4 %></td>
+                                        <td width="14%"><%= c1_sub4+c2_sub4+c3_sub4 %></td>
+                                        <td width="14%"><%= (c1_sub4+c2_sub4+c3_sub4)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= sub5 %></td>
+                                        <td width="14%"><%= c1_sub5 %></td>
+                                        <td width="14%"><%= c2_sub5 %></td>
+                                        <td width="14%"><%= c3_sub5 %></td>
+                                        <td width="14%"><%= c1_sub5+c2_sub5+c3_sub5 %></td>
+                                        <td width="14%"><%=  (c1_sub5+c2_sub5+c3_sub5)/10  %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">Name</td>
+                                        <td width="14%">0</td>
+                                        <td width="14%">0</td>
+                                        <td width="14%">0</td>
+                                        <td width="14%">0</td>
+                                        <td width="14%">0</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="card-header bg-transparent border-0" style="text-align: center;">
+                                <h3 class="mb-0">Electives</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered" style="text-align: center;">
+                                    <tr>
+                                        <th width="20%">Elective Name</th>
+                                        <th width="14%">C1</th>
+                                        <th width="14%">C2</th>
+                                        <th width="14%">C3</th>
+                                        <th width="14%">Total</th>
+                                        <th width="14%">CGPA</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= ele1 %></td>
+                                        <td width="14%"><%= c1_ele1 %></td>
+                                        <td width="14%"><%= c2_ele1 %></td>
+                                        <td width="14%"><%= c3_ele1 %></td>
+                                        <td width="14%"><%= c1_ele1+c2_ele1+c3_ele1 %></td>
+                                        <td width="14%"><%=  (c1_ele1+c2_ele1+c3_ele1)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= ele2 %></td>
+                                        <td width="14%"><%= c1_ele2 %></td>
+                                        <td width="14%"><%= c2_ele2 %></td>
+                                        <td width="14%"><%= c3_ele2 %></td>
+                                        <td width="14%"><%= c1_ele2+c2_ele2+c3_ele2 %></td>
+                                        <td width="14%"><%= (c1_ele2+c2_ele2+c3_ele2)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= ele3 %></td>
+                                        <td width="14%"><%= c1_ele3 %></td>
+                                        <td width="14%"><%= c2_ele3 %></td>
+                                        <td width="14%"><%= c3_ele3 %></td>
+                                        <td width="14%"><%= c1_ele3+c2_ele3+c3_ele3 %></td>
+                                        <td width="14%">0</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            
+                            <div class="card-header bg-transparent border-0" style="text-align: center;">
+                                <h3 class="mb-0">Projects</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered" style="text-align: center;">
+                                    <tr>
+                                        <th width="20%">Mini Project </th>
+                                        <th width="14%">C1</th>
+                                        <th width="14%">C2</th>
+                                        <th width="14%">C3</th>
+                                        <th width="14%">Total</th>
+                                        <th width="14%">CGPA</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= mp1 %></td>
+                                        <td width="14%"><%= c1_mp1 %></td>
+                                        <td width="14%"><%= c2_mp1 %></td>
+                                        <td width="14%"><%= c3_mp1 %></td>
+                                        <td width="14%"><%= c2_mp1+c3_mp1+c1_mp1 %></td>
+                                        <td width="14%"><%= (c1_mp1+c2_mp1+c3_mp1)/10 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><%= mp2 %></td>
+                                        <td width="14%"><%= c1_mp2 %></td>
+                                        <td width="14%"><%= c2_mp2 %></td>
+                                        <td width="14%"><%= c3_mp2 %></td>
+                                        <td width="14%"><%= c1_mp2+c2_mp2+c3_mp2 %></td>
+                                        <td width="14%"><%= (c1_mp2+c2_mp2+c3_mp2)/10 %></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>

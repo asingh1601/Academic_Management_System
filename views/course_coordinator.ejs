@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/logo.png">
+    <title>Course Coordinator</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
+    
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #02283a;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+        .container{
+            width:80%;
+        }
+        .app-heading{
+            margin-bottom: 40px;
+        }
+        .card-body{
+            background-color: #034d70;
+            border-radius: 25px;
+            border: none;
+        }
+        .card{
+            border:none;
+        }
+        .topicName{
+            color: #ffffff;
+        }
+        .totalQuestion{
+            color: #ffffff
+        }
+        .percentDone{
+            color: #ffffff
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+        <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large;">Course Coordinators</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link"  href="/dean_home"><i class="fas fa-home"></i> Home</a>
+            </li>
+        </ul>
+    </header>
+    <div id="mySidebar" class="sidebar">
+
+            <img src="https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg"
+                width="250px" height="250px">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 22px;">
+                            Status
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="openProfile()" href="#" style="font-size: 22px;">
+                            Profile
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 22px;">
+                            Course Registration
+                        </a>
+                    </li> -->
+                </ul>
+    
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/course_coordinator" style="font-size: 22px;">
+                          course coordinator
+                        </a>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 22px;">
+    
+                            Core Subjects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 22px;">
+                            Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 22px;">
+                            Electives
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="openResult()" href="#" style="font-size: 22px;">
+                            Semester Results
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Clcik</a>-->
+    
+        </div>
+    <div id="main">
+        <div class="App">
+            <h1 class="app-heading text-center mt-5"><b>Professor's Profile</b></h1>
+            <div class="container container-custom">
+                <div class="row row-cols-1 row-cols-md-3 mt-3 grids">
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 500ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="http://www.sonaliagarwal.com/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Agarwal, Dr. Sonali  </div>
+                                        </div>
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Twin Support Vector Machine, Support Vector Machine</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 550ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://profile.iiita.ac.in/anupam/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Agrawal, Prof. Anupam </div>
+                                        </div>
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Image & Vision Processing, Computer Graphics </i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 600ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://sites.google.com/view/anshusanand/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5">       	
+                                                    Dr. Anshu S. Anand </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Parallel and Distributed Computing: Software Transactional Memory</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 650ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://profile.iiita.ac.in/vijayk/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Chaurasiya, Dr. Vijay Kumar </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Wireless and Mobile Networks.</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 700ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://anjaliiitr.github.io/index.html" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Anjali Gautam </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Biomedical Image Analysis, Image Processing</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 750ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://sites.google.com/site/mohammedjaved2016" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Mohammed Javed </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Image Processing, Pattern Recognition, Data Compression</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 800ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="http://rkala.in/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Rahul Kala  </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Multi-Robot Motion Planning, Mission Planning </i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 850ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://scholar.google.co.in/citations?user=KCqcxYYAAAAJ&hl=en" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Triloki Pant </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Satellite Image Analysis, Fractal Geometry for Imaging</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 900ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://iiita.academia.edu/JagpreetSingh" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Jagpreet Singh </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Parallel & distributed systems, Operating systems</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 950ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://sites.google.com/site/sksiiita/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Satish Kumar Singh </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Digital Image Processing, Data-compression</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://profile.iiita.ac.in/vrij/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Vrijendra Singh</div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Blind Source Separation, Component Analysis</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 1050ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://profile.iiita.ac.in/venkat/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. S Venkatesan </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Network &Information Security,Social Network Privacy</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 1100ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://profile.iiita.ac.in/opvyas/" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5">Prof. Om Prakash Vyas</div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Data Mining and Business Intelligence, Mobile Networks</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 1150ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://it.iiita.ac.in/?pg=facultypage&uid=ranjana" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Ranjana Vyas </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Business Intelligence, Data Mining, Information Systems Strategy</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                    <div class="react-reveal col mb-4 "
+                        style="animation-fill-mode: both; animation-duration: 1200ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-176436325217326-1;">
+                        <a href="https://sites.google.com/view/kokilaj/home" style="text-decoration: none;">
+                            <div class="mb-3 notstarted-card hvr-grow card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="topicName card-title h5"> Dr. Kokila Jagadeesh </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="totalQuestion card-text">Ph.D.</p>
+                                    <p class="percentDone mb-1"><i>Research Interests:
+                                            Hardware Security, System on Chip design, FPGA</i></p>
+                                </div>
+                            </div>
+                        </a></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+            // function openNav() {
+            //     if (mySidebar.style.width == "0px") {
+            //         document.getElementById("mySidebar").style.width = "250px";
+            //         document.getElementById("main").style.marginLeft = "250px";
+            //     }
+            //     else {
+            //         document.getElementById("mySidebar").style.width = "0";
+            //         document.getElementById("main").style.marginLeft = "0";
+            //     }
+            // }
+            function openResult() {
+                window.open("result.html", "_self");
+            }
+            function Logout() {
+                window.open("login.html", "_self");
+            }
+            function Home() {
+                window.open("Home.html", "_self");
+            }
+    
+        </script>
+    <script>!function (e) { function r(r) { for (var n, l, a = r[0], f = r[1], i = r[2], c = 0, s = []; c < a.length; c++)l = a[c], Object.prototype.hasOwnProperty.call(o, l) && o[l] && s.push(o[l][0]), o[l] = 0; for (n in f) Object.prototype.hasOwnProperty.call(f, n) && (e[n] = f[n]); for (p && p(r); s.length;)s.shift()(); return u.push.apply(u, i || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, a = 1; a < t.length; a++) { var f = t[a]; 0 !== o[f] && (n = !1) } n && (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, l.t = function (e, r) { if (1 & r && (e = l(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, "a", r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = "/"; var a = this.webpackJsonp450dsa = this.webpackJsonp450dsa || [], f = a.push.bind(a); a.push = r, a = a.slice(); for (var i = 0; i < a.length; i++)r(a[i]); var p = f; t() }([])</script>
+    <script src="/static/js/2.a3e58fa0.chunk.js"></script>
+    <script src="/static/js/main.63e6bfc6.chunk.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css'>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+
+        body {
+            background-color: #f9f9fa
+        }
+
+        .padding {
+            padding: 3rem !important
+        }
+
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            background-color: rgb(247, 252, 255)
+        }
+
+        .heading {
+            font-size: 20px;
+            font-weight: 600;
+
+        }
+
+        .line1 {
+            color: #000;
+            font-size: 12px
+        }
+
+        .line2 {
+            color: #000;
+            font-size: 12px
+        }
+
+        .line3 {
+            color: #000;
+            font-size: 12px
+        }
+
+        .cards {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin: 10px 10px;
+
+        }
+
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+
+
+        li {
+            background: #fff;
+            height: 40px;
+            line-height: 40px;
+            color: #666
+        }
+
+        li:nth-child(2n) {
+            background: #f7f7f7
+        }
+
+        span {
+            background: #e74c3c;
+            height: 40px;
+            margin-right: 20px;
+            text-align: center;
+            color: white;
+            width: 0;
+            display: inline-block;
+            transition: 0.2s linear;
+            opacity: 0
+        }
+
+        li:hover span {
+            width: 40px;
+            opacity: 1.0
+        }
+
+
+        #container {
+            width: 360px;
+            margin: 100px auto;
+            background: #f7f7f7;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1)
+        }
+
+        .completed {
+            color: gray;
+            text-decoration: line-through
+        }
+
+        li.nav-item {
+            background: none;
+        }
+
+        .student-profile .card {
+            border-radius: 10px;
+        }
+
+        .student-profile .card .card-header .profile_img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+
+        .student-profile .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .student-profile .card p {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .student-profile .table th,
+        .student-profile .table td {
+            font-size: 14px;
+            padding: 5px 10px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow text-center">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large; ">Subjects</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link"  href="/dean_home"><i class="fas fa-home"></i> Home</a>
+            </li>
+        </ul>
+    </header>
+
+
+
+
+    <div id="main">
+
+        <div class="main text-center mt-5">
+            <h6 class="heading"> <%=subjectname%></h6>
+            <div class="col-md-12 mt-4 row g-0 d-flex" style="background-color: #fff;">
+                <p><b>Lecture :</b> 2</p>
+                <p><b>Tutorial :</b> 2</p>
+                <p><b>Practical :</b> 2</p>
+                <p><b>Objective :</b> To study</p>
+                <!-- <p><b>Syllabus :</b>
+                    hbdshbdscnwcjqmhbdscnwcjqmhbdscnwcjqmhbdscnwcjqmhbdscnwcjqmhbdscnwcjqmhbdscnwcjqmhbdscnwcjqmcnwcjqm
+                </p> -->
+            </div>
+        </div>
+        <div class="container mt-4 d-flex justify-content-center">
+            <div class="row g-0" style="width: 70%;">
+                <div class="col-md-12 border-right">
+                    <div class="cards">
+                        <div class="first bg-white p-4 text-center">
+                            <h5> Enrolled Students</h5>
+                            <br>
+
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="50%">Roll number</th>
+                                        <th>Name</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="50%"><%= userstu1 %></td>
+
+                                        <td><%= namestu1 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%"><%= userstu2 %></td>
+
+                                        <td><%= namestu2 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%"><%= userstu3 %></td>
+
+                                        <td><%= namestu3 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%"><%= userstu4 %></td>
+
+                                        <td><%= namestu4 %></td>
+                                    </tr>
+
+                                </table>
+                            
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>

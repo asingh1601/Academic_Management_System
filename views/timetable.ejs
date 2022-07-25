@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/logo.png">
+    <title>Time Table</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background-color: rgb(247, 252, 255);
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        .cards {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin: 20px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+        <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large;">Timetable</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/dean_home"><i class="fas fa-home"></i></a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div id="main">
+        <div class="container mt-4 d-flex justify-content-center">
+            <div class="row g-0" style="margin-top: 100px;">
+                <div class="col-md-12 border-right">
+                    <div class="cards" style="margin-top: 50px;">
+                        <div class="card-body bg-white">
+                            <h5 class="card-title" style="text-align: center;">Current Timetable</h5>
+                            <a href="timetable.pdf" target="_blank">
+                                <p class="card-text" style="text-align: center;"><button type="button"
+                                        class="btn btn-dark">View</button></p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 border-right">
+                    <div class="cards" style="margin-top: 50px;">
+                        <div class="card-body bg-white">
+                            <h5 class="card-title" style="text-align: center;">Update Timetable</h5>
+                            <p class="card-text" style="text-align: center;">
+                                <!--  <form action="/action_page.php">
+                                    <input type="file" id="myFile" name="filename">
+                                    <input type="submit">
+                                </form> -->
+                                <form action="/uploadfile2" enctype="multipart/form-data" method="POST">
+                                    <div style="text-align: center;">
+                                        <input type="file" name="myFile" accept="application/pdf" />
+                                    </div>
+                                    <br>
+                                    <div style="text-align: center;">
+                                        <input type="submit" value="Update" />
+                                    </div>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>

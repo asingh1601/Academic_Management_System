@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/logo.png">
+  <title>Student Home</title>
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    .navbar {
+      background-color: #02283a;
+    }
+
+    .generaldetails {
+      height: 150px;
+      width: 100%;
+    }
+
+    .item {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .item-card {
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+
+
+    /* .item-card-title{  
+  font-size:15px;
+  transition:1s;
+  cursor:pointer;
+}
+.item-card-title i{  
+  font-size:15px;
+  transition:1s;
+  cursor:pointer;
+  color:#ffa710
+} */
+    .card-title i:hover {
+      transform: scale(1.25) rotate(100deg);
+      color: #18d4ca;
+
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-text {
+      height: 80px;
+    }
+
+    .card::before,
+    .card::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: scale3d(0, 0, 1);
+      transition: transform .3s ease-out 0s;
+      background: rgba(255, 255, 255, 0.1);
+      content: '';
+      pointer-events: none;
+    }
+
+    .card::before {
+      transform-origin: left top;
+    }
+
+    .card::after {
+      transform-origin: right bottom;
+    }
+
+    .card:hover::before,
+    .card:hover::after,
+    .card:focus::before,
+    .card:focus::after {
+      transform: scale3d(1, 1, 1);
+    }
+
+    .card {
+      left: 50%;
+      right: 50%;
+      margin-top: 50%;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #02283a;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #ffffff;
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+
+
+
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+    <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+    <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i></button>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h1 style="color:White; font-size: x-large;">Academic Management System</h1>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <!-- <a class="nav-link" onclick="Logout()" href="#"><i class="fas fa-power-off"></i> Sign out</a> -->
+        <a class="nav-link" href="/signout"><i class="fas fa-power-off"></i></a>
+      </li>
+    </ul>
+  </header>
+  <div class="container mt-2">
+    <!--   <div class="card card-block mb-2">
+            <h4 class="card-title">Card 1</h4>
+            <p class="card-text">Welcom to bootstrap card styles</p>
+            <a href="#" class="btn btn-primary">Submit</a>
+          </div>   -->
+    <div class="row">
+      <div class="col-md-3 col-sm-6 item">
+        <a href="calendar.pdf" >
+          <div class="card item-card card-block">
+            <img class="generaldetails" src="https://images.unsplash.com/photo-1609266378844-4a8af6d72fab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Photo of sunset">
+            <h3 class="item-card-title mt-3 mb-3 text-center">Academic Calendar</h3>
+          </div>
+        </a>
+
+      </div>
+      <div class="col-md-3 col-sm-6 item">
+        <a href="timetable.pdf" >
+          <div class="card item-card card-block">
+            <img class="generaldetails" src="https://i.pinimg.com/originals/f0/68/02/f068026e6ee02bd096e849cd7bbebd74.jpg" alt="Photo of sunset">
+            <h3 class="item-card-title mt-3 mb-3 text-center">Time Table</h3>
+          </div>
+        </a>
+
+      </div>
+      <div class="col-md-3 col-sm-6 item">
+        <a href="/fee" >
+        <div class="card item-card card-block">
+          <img class="generaldetails" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+          <h3 class="item-card-title mt-3 mb-3 text-center">Fee Status</h3>
+        </div>
+      </a>
+      </div>
+
+    </div>
+
+
+    <div id="mySidebar" class="sidebar">
+
+        <img src="https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg" width="250px" height="250px">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="/stu_status" style="font-size: 22px;">
+              Status
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" onclick="openProfile()" href="#" style="font-size: 22px;"> -->
+            <a class="nav-link" href="/profile" style="font-size: 22px;">
+              Profile
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#" style="font-size: 22px;">
+              Course Registration
+            </a>
+          </li> -->
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"></h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/subject" style="font-size: 22px;">
+
+              Core Subjects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/course_coordinator_s" style="font-size: 22px;">
+              Course Coordinator
+            </a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="/result" style="font-size: 22px;">
+              Semester Results
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comp_subject" style="font-size: 22px;">
+              Complete Subject
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Clcik</a>-->
+
+    </div>
+  </div>
+
+  <script>
+    function openNav() {
+      if (mySidebar.style.width == "0px") {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      else {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    }
+    function openResult() {
+      window.open("result.html", "_self");
+    }
+    function openProfile() {
+      window.open("Profile.html", "_self");
+    }
+    function Logout() {
+      window.open("login.html", "_self");
+    }
+
+  </script>
+
+</body>
+
+</html>

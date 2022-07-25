@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome -->
+    <link rel="icon" href="/logo.png">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link href="./welcome.css" rel="stylesheet" />
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+       
+</head>
+
+<body>
+
+    <div >
+        <span class="welcome">Welcome to Academic 
+        Management System</span>
+        <span class="select">Select your role</span> 
+       <button><a href="/login" class="student">Student</a></button> 
+       <button><a href="/dean_login" class="admin">Dean</a></button>  
+        <div class="welcome_bg"></div>
+    </div>
+
+    
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>

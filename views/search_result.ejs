@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Result</title>
+    <link rel="icon" href="/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <style>
+        body {
+            background-color: rgb(247, 252, 255);
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #02283a;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+
+        .padding {
+            padding: 3rem !important
+        }
+
+
+        @media only screen and (min-width: 1400px) {
+            p {
+                font-size: 14px
+            }
+        }
+
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #f9f9fa;
+        }
+
+        .student-profile .card {
+            border-radius: 10px;
+        }
+
+        .student-profile .card .card-header .profile_img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+
+        .student-profile .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .student-profile .card p {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .student-profile .table th,
+        .student-profile .table td {
+            font-size: 14px;
+            padding: 5px 10px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+        <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large;">Student's Information</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link"  href="/dean_home"><i class="fas fa-home"></i> Home</a>
+            </li>
+        </ul>
+    </header>
+
+
+
+
+    <div id="main">
+        <!-- Student Profile -->
+        <div class="student-profile py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent text-center">
+                                <img class="profile_img" src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                    alt="User-Profile-Image">
+                                <h3><%= firstname %>  <%= lastname %></h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0"><strong class="pr-1">Roll number: </strong><h6><%= username %></h6></p>
+                                <p class="mb-0"><strong class="pr-1">Email: </strong><h6><%= email %></h6></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0">General Information</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%">First Name</th>
+                                        <td width="2%">:</td>
+                                        <td><%= firstname %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Last name </th>
+                                        <td width="2%">:</td>
+                                        <td><%= lastname %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Contact number</th>
+                                        <td width="2%">:</td>
+                                        <td><%= number %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Address</th>
+                                        <td width="2%">:</td>
+                                        <td><%= address %></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0">Status</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%">CGPA</th>
+                                        <td width="2%">:</td>
+                                        <td><%= cgpa %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Attendance</th>
+                                        <td width="2%">:</td>
+                                        <td><%= attendence %>%</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Dropped courses</th>
+                                        <td width="2%">:</td>
+                                        <td><%= drpcourse %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Penalty</th>
+                                        <td width="2%">:</td>
+                                        <td><%= penalty %></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0">Subjects</h3>
+                            </div>
+                            <div class="card-header bg-transparent border-0">
+                                <h6 class="mb-0">Core Subjects</h6>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width="100%"><%= sub1 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= sub2 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= sub3 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= sub4 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= sub5 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= sub6 %></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="card-header bg-transparent border-0">
+                                <h6 class="mb-0">Electives</h6>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width="100%"><%= ele1 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= ele2 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= ele3 %></td>
+                                    </tr>
+                                  
+
+                                </table>
+                            </div>
+                            <div class="card-header bg-transparent border-0">
+                                <h6 class="mb-0">Mini Projects</h6>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width="100%"><%= mp1 %></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"><%= mp2 %></td>
+                                    </tr>
+                                   
+
+                                </table>
+                            </div>
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0">Fees status</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%">Fees</th>
+                                        <td width="2%">:</td>
+                                        <td><%= fees %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Paid fees</th>
+                                        <td width="2%">:</td>
+                                        <td><%= paidfee %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Late fees</th>
+                                        <td width="2%">:</td>
+                                        <td><%= latefee %></td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Due fees</th>
+                                        <td width="2%">:</td>
+                                        <td><%= feedue %></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>

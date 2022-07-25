@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/logo.png">
+  <title>Result</title>
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    .navbar {
+      background-color: #02283a;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #02283a;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #ffffff;
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    body {
+      background-color: #f9f9fa
+    }
+
+    .padding {
+      padding: 3rem !important
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Assistant');
+
+    body {
+      background: #eee;
+      font-family: Assistant, sans-serif
+    }
+
+    .external-link {
+      cursor: pointer;
+      color: blue
+    }
+
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+    <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+    <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h1 style="color:White; font-size: x-large;">Semester Results (<%=username %>)</h1>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="/home"><i class="fas fa-home"></i></a>
+      </li>
+    </ul>
+  </header>
+
+
+  <div id="mySidebar" class="sidebar">
+
+    <img
+      src="https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg"
+      width="250px" height="250px">
+    <div class="position-sticky pt-3">
+      <ul class="nav flex-column">
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/stu_status" style="font-size: 22px;">
+            Status
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="openProfile()" href="/profile" style="font-size: 22px;">
+            Profile
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" style="font-size: 22px;">
+            Course Registration
+          </a>
+        </li> -->
+      </ul>
+
+      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      </h6>
+      <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+          <a class="nav-link" href="/subject" style="font-size: 22px;">
+
+            Core Subjects
+          </a>
+        </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/course_coordinator_s" style="font-size: 22px;">
+          Course Coordinator
+        </a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="openResult()" href="/result" style="font-size: 22px;">
+            Semester Results
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/comp_subject" style="font-size: 22px;">
+            Complete Subject
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Clcik</a>-->
+
+  </div>
+  </div>
+  <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Clcik</a>-->
+
+  </div>
+
+  <div id="main">
+    <div class="container mt-5">
+      <div class="table-responsive" id="div">
+        <table class="table table-striped table-dark text-white table-hover" id="table">
+          <thead>
+            <tr>
+              <th colspan="2">Subject</th>
+              <th>C1</th>
+              <th>C2</th>
+              <th>C3</th>
+              <th>Total</th>
+              <th>CGPA</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <h6><%= sub1 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_sub1 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c2_sub1 %><br>
+              </td>
+              <td>
+                <%= c3_sub1 %>
+              </td>
+              <td>
+                <%= c1_sub1+c2_sub1+c3_sub1 %>   
+
+              </td>
+              <td> <%= (c1_sub1+c2_sub1+c3_sub1)/10 %>   </td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+
+            </tr>
+            <td colspan="2">
+              <h6><%= sub2 %></h6>
+            </td>
+            <td>
+              <div class="d-flex align-items-center"><span class="ml-2">
+                  <%= c1_sub2 %>
+                </span></div>
+            </td>
+            <td>
+              <%= c2_sub2 %><br>
+            </td>
+            <td>
+              <%= c3_sub2 %>
+            </td>
+            <td>
+              <%= c1_sub2+c2_sub2+c3_sub2 %>
+            </td>
+            <td><%= (c1_sub2+c2_sub2+c3_sub2)/10 %></td>
+            <td><i class="fa fa-external-link external-link"></i></td>
+
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h6><%= sub3 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_sub3 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c2_sub3 %><br>
+              </td>
+              <td>
+                <%= c3_sub3 %>
+              </td>
+              <td>
+                <%= c1_sub3+c2_sub3+c3_sub3 %>
+              </td>
+              <td><%= (c1_sub3+c2_sub3+c3_sub3)/10 %></td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h6><%= sub4 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_sub4 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c2_sub4 %><br>
+              </td>
+              <td>
+                <%= c3_sub4 %>
+              </td>
+              <td>
+                <%= c1_sub4+c2_sub4+c3_sub4 %>
+              </td>
+              <td><%= (c1_sub4+c2_sub4+c3_sub4)/10 %></td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h6><%= sub5 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_sub5 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c2_sub5 %><br>
+              </td>
+              <td>
+                <%= c3_sub5 %>
+              </td>
+              <td> 
+                <%= c1_sub5+c2_sub5+c3_sub5 %>
+              </td>
+              <td>
+                <%= (c1_sub5+c2_sub5+c3_sub5)/10 %>
+              </td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <table class="table table-striped table-dark text-white table-hover" id="table">
+          <thead>
+            <tr>
+              <th colspan="2">Electives</th>
+              <th>C1</th>
+              <th>C2</th>
+              <th>C3</th>
+              <th>Total</th>
+              <th>CGPA</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <h6><%= ele1 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_ele1 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c2_ele1 %><br>
+              </td>
+              <td>
+                <%= c3_ele1 %>
+              </td>
+              <td>
+                <%= c1_ele1+c2_ele1+c3_ele1 %>   
+
+              </td>
+              <td> <%= (c1_ele1+c2_ele1+c3_ele1)/10 %>   </td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+
+            </tr>
+            <td colspan="2">
+              <h6><%= ele2 %></h6>
+            </td>
+            <td>
+              <div class="d-flex align-items-center"><span class="ml-2">
+                  <%= c1_ele2 %>
+                </span></div>
+            </td>
+            <td>
+              <%= c2_ele2 %><br>
+            </td>
+            <td>
+              <%= c3_ele2 %>
+            </td>
+            <td>
+              <%= c1_ele2+c2_ele2+c3_ele2 %>
+            </td>
+            <td><%= (c1_ele2+c2_ele2+c3_ele2)/10 %></td>
+            <td><i class="fa fa-external-link external-link"></i></td>
+
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h6><%= ele3 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_ele3 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c1_ele3 %><br>
+              </td>
+              <td>
+                <%= c3_ele3 %>
+              </td>
+              <td>
+                <%= c1_ele3+c2_ele3+c3_ele3 %>
+              </td>
+              <td><%= (c1_ele3+c2_ele3+c3_ele3)/10 %></td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <br>
+        <table class="table table-striped table-dark text-white table-hover" id="table">
+          <thead>
+            <tr>
+              <th colspan="2">Mini Project</th>
+              <th>C1</th>
+              <th>C2</th>
+              <th>C3</th>
+              <th>Total</th>
+              <th>CGPA</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+              <td colspan="2">
+                <h6><%= mp1 %></h6>
+              </td>
+              <td>
+                <div class="d-flex align-items-center"><span class="ml-2">
+                    <%= c1_mp1 %>
+                  </span></div>
+              </td>
+              <td>
+                <%= c2_mp1 %><br>
+              </td>
+              <td>
+                <%= c3_mp1 %>
+              </td>
+              <td>
+                <%= c1_mp1+c2_mp1+c3_mp1 %>   
+
+              </td>
+              <td> <%= (c1_mp1+c2_mp1+c3_mp1)/10 %>   </td>
+              <td><i class="fa fa-external-link external-link"></i></td>
+
+            </tr>
+            <td colspan="2">
+              <h6><%= mp2 %></h6>
+            </td>
+            <td>
+              <div class="d-flex align-items-center"><span class="ml-2">
+                  <%= c1_mp2 %>
+                </span></div>
+            </td>
+            <td>
+              <%= c2_mp2 %><br>
+            </td>
+            <td>
+              <%= c3_mp2 %>
+            </td>
+            <td>
+              <%= c1_mp2+c2_mp2+c3_mp2 %>
+            </td>
+            <td><%= (c1_mp2+c2_mp2+c3_mp2)/10 %></td>
+            <td><i class="fa fa-external-link external-link"></i></td>
+
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      
+        <p> <b> Total CG:-</b><%= (c1_sub1+c2_sub1+c3_sub1+c1_sub2+c2_sub2+c3_sub2+c1_sub3+c2_sub3+c3_sub3+c1_sub4+c2_sub4+c3_sub4+c1_sub5+c2_sub5+c3_sub5)/5 %></p>
+      </div>
+      <button id="button">Download Image</button> 
+     <!-- <button onclick="HTMLtoPDF()">HTML to PDF convert</button>
+  -->  </div>
+  </div>
+
+ 
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+<script>
+  function HTMLtoPDF(){
+
+var doc = new jsPDF();
+var HTMLelement = $("#table").html()
+doc.fromHTML(HTMLelement,10,10 ,{
+	'width':190
+})
+//doc.text("Hello world!", 10, 10);
+doc.save("result.pdf");
+}
+
+  $(document).ready(function(){
+		$("#button").click(function(){
+			domtoimage.toBlob(document.getElementById('div'))
+			.then(function(blob){
+				window.saveAs(blob,"result.png");
+			});
+		});
+	});
+  function openNav() {
+    if (mySidebar.style.width == "0px") {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+    else {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+  }
+  function openResult() {
+    window.open("result.html", "_self");
+  }
+  function Logout() {
+    window.open("login.html", "_self");
+  }
+  function Home() {
+    window.open("Home.html", "_self");
+  }
+
+</script>
+</html>

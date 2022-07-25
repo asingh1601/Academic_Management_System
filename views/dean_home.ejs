@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/logo.png">
+    <title>Dean Home</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #02283a;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        body {
+            background-color: #f9f9fa
+        }
+
+        .padding {
+            padding: 3rem !important
+        }
+
+        body {
+            color: #000;
+            overflow-x: hidden;
+            height: 100%;
+            background-image: linear-gradient(180deg, #02283a, #fff);
+            background-repeat: no-repeat
+        }
+
+        .card {
+            box-shadow: 0px 4px 8px 0px #BDBDBD
+        }
+
+        .profile-pic {
+            width: 100px !important;
+            height: 100px;
+            box-shadow: 0px 4px 8px 0px #BDBDBD
+        }
+
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            background: 0 0;
+            color: #02283a !important;
+            border: none;
+            padding: 5px 20px !important;
+            font: inherit;
+            font-size: 50px !important
+        }
+
+        .owl-carousel .owl-nav button.owl-next:hover,
+        .owl-carousel .owl-nav button.owl-prev:hover {
+            color: #02283a !important;
+            background-color: transparent !important
+        }
+
+        .owl-dots {
+            display: none
+        }
+
+        button:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0
+        }
+
+        .item {
+            display: none
+        }
+
+        .next {
+            display: block !important;
+            position: relative;
+            transform: scale(0.8);
+            transition-duration: 0.3s;
+            opacity: 0.6
+        }
+
+        .prev {
+            display: block !important;
+            position: relative;
+            transform: scale(0.8);
+            transition-duration: 0.3s;
+            opacity: 0.6
+        }
+
+        .item.show {
+            display: block;
+            transition-duration: 0.4s
+        }
+
+        @media screen and (max-width: 999px) {
+
+            .next,
+            .prev {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            .item {
+                display: block !important
+            }
+        }
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        
+        <center><h6 class="navbar-brand col-md-3 col-lg-2 me-0 px-3">Academic Management System</h6> </center>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/"><i class="fas fa-power-off"></i> Sign out</a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div id="main">
+        <div class="container-fluid px-3 px-sm-5 my-5 text-center">
+            <h4 class="mb-5 font-weight-bold" style="color: #ffffff;">Welcome Dean </h4>
+            <div class="owl-carousel owl-theme">
+                <div class="item first prev">
+                   <div class="card border-0 py-3 px-4"> <a href="/student_search"> 
+                    <img src="https://images.unsplash.com/photo-1500160503851-c04cefe545a9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" style="height: 300px; width: 420px;"   alt="">
+					Search Student </a>
+						</div>
+                </div> 
+                <div class="item show">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+               <a href="/timetable">         <img src="https://i.pinimg.com/originals/f0/68/02/f068026e6ee02bd096e849cd7bbebd74.jpg" style="height: 300px; width: 420px;"   alt="">
+                        Timetable</a>
+							
+                       
+                    </div>
+                </div>
+                <div class="item next">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+                        <a href="/calendar">        <img src="https://images.unsplash.com/photo-1609266378844-4a8af6d72fab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" style="height: 300px; width: 420px;"   alt="">
+                       Calender</a>
+                        
+                    </div>
+                </div>
+                <div class="item next">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+                        <a href="/modify_result_1">        <img src="https://images.unsplash.com/photo-1609266378844-4a8af6d72fab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" style="height: 300px; width: 420px;"   alt="">
+                       Update Result</a>
+                        
+                    </div>
+                </div>
+                <div class="item next">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+                        <a href="/res_search">     <img src="https://cache.careers360.mobi/media/presets/860X430/article_images/2019/6/3/aibe-result.jpg" style="height: 300px; width: 420px;"   alt="">
+                       Result Search</a>
+                        
+                    </div>
+                </div>
+                <div class="item next">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+                        <a href="/allsubject">     <img src="https://vivatutor.uk/blog/content/images/2018/02/subject-vivatutor.jpg" style="height: 300px; width: 420px;"   alt="">
+                       All Subject</a>
+                        
+                    </div>
+                </div>
+                <div class="item next">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+                        <a href="/pro_update">     <img src="https://cdn4.iconfinder.com/data/icons/team-and-workflow/100/workflow-07-512.png" style="height: 300px; width: 420px;"   alt="">
+                       Profile Update</a>
+                        
+                    </div>
+                </div>
+                <div class="item last">
+                    <div class="card border-0 py-3 px-4">
+                        <div class="row justify-content-center">  </div>
+                        <a href="/course_coordinator">     <img src="https://image.freepik.com/free-photo/businessman-holding-note-pad-during-meeting_137573-852.jpg" alt="">
+                       Course Coordinator</a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+        $(document).ready(function () {
+
+            $('.owl-carousel').owlCarousel({
+                mouseDrag: false,
+                loop: true,
+                margin: 2,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+
+            $('.owl-prev').click(function () {
+                $active = $('.owl-item .item.show');
+                $('.owl-item .item.show').removeClass('show');
+                $('.owl-item .item').removeClass('next');
+                $('.owl-item .item').removeClass('prev');
+                $active.addClass('next');
+                if ($active.is('.first')) {
+                    $('.owl-item .last').addClass('show');
+                    $('.first').addClass('next');
+                    $('.owl-item .last').parent().prev().children('.item').addClass('prev');
+                }
+                else {
+                    $active.parent().prev().children('.item').addClass('show');
+                    if ($active.parent().prev().children('.item').is('.first')) {
+                        $('.owl-item .last').addClass('prev');
+                    }
+                    else {
+                        $('.owl-item .show').parent().prev().children('.item').addClass('prev');
+                    }
+                }
+            });
+
+            $('.owl-next').click(function () {
+                $active = $('.owl-item .item.show');
+                $('.owl-item .item.show').removeClass('show');
+                $('.owl-item .item').removeClass('next');
+                $('.owl-item .item').removeClass('prev');
+                $active.addClass('prev');
+                if ($active.is('.last')) {
+                    $('.owl-item .first').addClass('show');
+                    $('.owl-item .first').parent().next().children('.item').addClass('prev');
+                }
+                else {
+                    $active.parent().next().children('.item').addClass('show');
+                    if ($active.parent().next().children('.item').is('.last')) {
+                        $('.owl-item .first').addClass('next');
+                    }
+                    else {
+                        $('.owl-item .show').parent().next().children('.item').addClass('next');
+                    }
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

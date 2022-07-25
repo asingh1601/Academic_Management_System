@@ -1,0 +1,391 @@
+[{
+  "_id": {
+    "$oid": "6069eef6f2c39e3b9cce7991"
+  },
+  "username": "iit2019109",
+  "sem1_sub1": "LAL",
+  "sem1_sub2": "POE",
+  "sem1_sub3": "PFC",
+  "sem1_sub4": "PHY",
+  "sem1_sub5": "ITP",
+  "sem1_sub6": "FE",
+  "sem2_sub1": "DM",
+  "sem2_sub2": "UMC",
+  "sem2_sub3": "COA",
+  "sem2_sub4": "DS",
+  "sem2_sub5": "PCE",
+  "sem2_sub6": "POE",
+  "sem3_sub1": "PS",
+  "sem3_sub2": "TOC",
+  "sem3_sub3": "OS",
+  "sem3_sub4": "ITM",
+  "sem3_sub5": "OOM",
+  "sem3_sub6": "ITF",
+  "sem4_sub1": "DAA",
+  "sem4_sub2": "SE",
+  "sem4_sub3": "CN",
+  "sem4_sub4": "PPL",
+  "sem4_sub5": "DBMS",
+  "sem5_sub1": "-",
+  "sem5_sub2": "-",
+  "sem5_sub3": "-",
+  "sem5_sub4": "-",
+  "sem5_sub5": "-",
+  "sem5_mp": "-",
+  "sem6_sub": "-",
+  "sem6_mp2": "-",
+  "sem6_ele1": "-",
+  "sem6_ele2": "-",
+  "sem6_ele3": "-"
+},{
+  "_id": {
+    "$oid": "6077cdb4049e902b7f9a1ba1"
+  },
+  "username": "iit2019111",
+  "sem1_sub1": "LAL",
+  "sem1_sub2": "POE",
+  "sem1_sub3": "PFC",
+  "sem1_sub4": "PHY",
+  "sem1_sub5": "ITP",
+  "sem1_sub6": "FE",
+  "sem2_sub1": "DM",
+  "sem2_sub2": "UMC",
+  "sem2_sub3": "COA",
+  "sem2_sub4": "DS",
+  "sem2_sub5": "PCE",
+  "sem2_sub6": "POE",
+  "sem3_sub1": "PS",
+  "sem3_sub2": "TOC",
+  "sem3_sub3": "OS",
+  "sem3_sub4": "ITM",
+  "sem3_sub5": "OOM",
+  "sem3_sub6": "ITF",
+  "sem4_sub1": "DAA",
+  "sem4_sub2": "SE",
+  "sem4_sub3": "CN",
+  "sem4_sub4": "PPL",
+  "sem4_sub5": "DBMS",
+  "sem5_sub1": "-",
+  "sem5_sub2": "-",
+  "sem5_sub3": "-",
+  "sem5_sub4": "-",
+  "sem5_sub5": "-",
+  "sem5_mp": "-",
+  "sem6_sub": "-",
+  "sem6_mp2": "-",
+  "sem6_ele1": "-",
+  "sem6_ele2": "-",
+  "sem6_ele3": "-"
+},{
+  "_id": {
+    "$oid": "6077cdde049e902b7f9a1ba2"
+  },
+  "username": "iit2019141",
+  "sem1_sub1": "LAL",
+  "sem1_sub2": "POE",
+  "sem1_sub3": "PFC",
+  "sem1_sub4": "PHY",
+  "sem1_sub5": "ITP",
+  "sem1_sub6": "FE",
+  "sem2_sub1": "DM",
+  "sem2_sub2": "UMC",
+  "sem2_sub3": "COA",
+  "sem2_sub4": "DS",
+  "sem2_sub5": "PCE",
+  "sem2_sub6": "POE",
+  "sem3_sub1": "PS",
+  "sem3_sub2": "TOC",
+  "sem3_sub3": "OS",
+  "sem3_sub4": "ITM",
+  "sem3_sub5": "OOM",
+  "sem3_sub6": "ITF",
+  "sem4_sub1": "DAA",
+  "sem4_sub2": "SE",
+  "sem4_sub3": "CN",
+  "sem4_sub4": "PPL",
+  "sem4_sub5": "DBMS",
+  "sem5_sub1": "-",
+  "sem5_sub2": "-",
+  "sem5_sub3": "-",
+  "sem5_sub4": "-",
+  "sem5_sub5": "-",
+  "sem5_mp": "-",
+  "sem6_sub": "-",
+  "sem6_mp2": "-",
+  "sem6_ele1": "-",
+  "sem6_ele2": "-",
+  "sem6_ele3": "-"
+},{
+  "_id": {
+    "$oid": "6077cdee049e902b7f9a1ba3"
+  },
+  "username": "iit2019149",
+  "sem1_sub1": "LAL",
+  "sem1_sub2": "POE",
+  "sem1_sub3": "PFC",
+  "sem1_sub4": "PHY",
+  "sem1_sub5": "ITP",
+  "sem1_sub6": "FE",
+  "sem2_sub1": "DM",
+  "sem2_sub2": "UMC",
+  "sem2_sub3": "COA",
+  "sem2_sub4": "DS",
+  "sem2_sub5": "PCE",
+  "sem2_sub6": "POE",
+  "sem3_sub1": "PS",
+  "sem3_sub2": "TOC",
+  "sem3_sub3": "OS",
+  "sem3_sub4": "ITM",
+  "sem3_sub5": "OOM",
+  "sem3_sub6": "ITF",
+  "sem4_sub1": "DAA",
+  "sem4_sub2": "SE",
+  "sem4_sub3": "CN",
+  "sem4_sub4": "PPL",
+  "sem4_sub5": "DBMS",
+  "sem5_sub1": "-",
+  "sem5_sub2": "-",
+  "sem5_sub3": "-",
+  "sem5_sub4": "-",
+  "sem5_sub5": "-",
+  "sem5_mp": "-",
+  "sem6_sub": "-",
+  "sem6_mp2": "-",
+  "sem6_ele1": "-",
+  "sem6_ele2": "-",
+  "sem6_ele3": "-"
+},{
+  "_id": {
+    "$oid": "6077e900bfef9ffd661e7ebb"
+  },
+  "username": "iit2018082",
+  "sem1_sub1": "LAL",
+  "sem1_sub2": "POE",
+  "sem1_sub3": "PFC",
+  "sem1_sub4": "PHY",
+  "sem1_sub5": "ITP",
+  "sem1_sub6": "FE",
+  "sem2_sub1": "DM",
+  "sem2_sub2": "UMC",
+  "sem2_sub3": "COA",
+  "sem2_sub4": "DS",
+  "sem2_sub5": "PCE",
+  "sem2_sub6": "POE",
+  "sem3_sub1": "PS",
+  "sem3_sub2": "TOC",
+  "sem3_sub3": "OS",
+  "sem3_sub4": "ITM",
+  "sem3_sub5": "OOM",
+  "sem3_sub6": "ITF",
+  "sem4_sub1": "DAA",
+  "sem4_sub2": "SE",
+  "sem4_sub3": "CN",
+  "sem4_sub4": "PPL",
+  "sem4_sub5": "DBMS",
+  "sem5_sub1": "NS",
+  "sem5_sub2": "GVC",
+  "sem5_sub3": "ML",
+  "sem5_sub4": "AI",
+  "sem5_sub5": "IVR",
+  "sem5_mp": "mp",
+  "sem6_sub": "DM",
+  "sem6_mp2": "mp2",
+  "sem6_ele1": "ele1",
+  "sem6_ele2": "ele2",
+  "sem6_ele3": "ele3"
+},{
+  "_id": {
+    "$oid": "608639b16a17f5da5581e3d0"
+  },
+  "subjectname": "DAA",
+  "userstu1": "IIT2019109",
+  "namestu1": "Rahul",
+  "namestu2": "Aditya",
+  "namestu3": "Khushi",
+  "namestu4": "Nandini",
+  "userstu2": "IIT2019111",
+  "userstu3": "IIT2019141",
+  "userstu4": "IIT2019109"
+},{
+  "_id": {
+    "$oid": "6088daf550d71881403fe869"
+  },
+  "subjectname": "PPL",
+  "userstu1": "IIT2019109",
+  "namestu1": "Rahul",
+  "namestu2": "Aditya",
+  "namestu3": "Khushi",
+  "namestu4": "Nandini",
+  "userstu2": "IIT2019111",
+  "userstu3": "IIT2019141",
+  "userstu4": "IIT2019109"
+},{
+  "_id": {
+    "$oid": "6088db0b50d71881403fe86a"
+  },
+  "subjectname": "SOE",
+  "userstu1": "IIT2019109",
+  "namestu1": "Rahul",
+  "namestu2": "Aditya",
+  "namestu3": "Khushi",
+  "namestu4": "Nandini",
+  "userstu2": "IIT2019111",
+  "userstu3": "IIT2019141",
+  "userstu4": "IIT2019109"
+},{
+  "_id": {
+    "$oid": "6088db1f50d71881403fe86b"
+  },
+  "subjectname": "CN",
+  "userstu1": "IIT2019109",
+  "namestu1": "Rahul",
+  "namestu2": "Aditya",
+  "namestu3": "Khushi",
+  "namestu4": "Nandini",
+  "userstu2": "IIT2019111",
+  "userstu3": "IIT2019141",
+  "userstu4": "IIT2019109"
+},{
+  "_id": {
+    "$oid": "6088db3150d71881403fe86c"
+  },
+  "subjectname": "DBMS",
+  "userstu1": "IIT2019109",
+  "namestu1": "Rahul",
+  "namestu2": "Aditya",
+  "namestu3": "Khushi",
+  "namestu4": "Nandini",
+  "userstu2": "IIT2019111",
+  "userstu3": "IIT2019141",
+  "userstu4": "IIT2019109"
+},{
+  "_id": {
+    "$oid": "6088ddd050d71881403fe86e"
+  },
+  "subjectname": "DM",
+  "userstu1": "IIT2020099",
+  "namestu1": "KUNAL",
+  "namestu2": "TANU",
+  "namestu3": "KRISHNA",
+  "namestu4": "Akash",
+  "userstu2": "IIT20219",
+  "userstu3": "IIT2020178",
+  "userstu4": "IIT2020001"
+},{
+  "_id": {
+    "$oid": "6088dde450d71881403fe86f"
+  },
+  "subjectname": "UMC",
+  "userstu1": "IIT2020099",
+  "namestu1": "KUNAL",
+  "namestu2": "TANU",
+  "namestu3": "KRISHNA",
+  "namestu4": "Akash",
+  "userstu2": "IIT2020219",
+  "userstu3": "IIT2020178",
+  "userstu4": "IIT2020001"
+},{
+  "_id": {
+    "$oid": "6088dded50d71881403fe870"
+  },
+  "subjectname": "COA",
+  "userstu1": "IIT2020099",
+  "namestu1": "KUNAL",
+  "namestu2": "TANU",
+  "namestu3": "KRISHNA",
+  "namestu4": "Akash",
+  "userstu2": "IIT2020219",
+  "userstu3": "IIT2020178",
+  "userstu4": "IIT2020001"
+},{
+  "_id": {
+    "$oid": "6088de0150d71881403fe871"
+  },
+  "subjectname": "DS",
+  "userstu1": "IIT2020099",
+  "namestu1": "KUNAL",
+  "namestu2": "TANU",
+  "namestu3": "KRISHNA",
+  "namestu4": "Akash",
+  "userstu2": "IIT2020219",
+  "userstu3": "IIT2020178",
+  "userstu4": "IIT2020001"
+},{
+  "_id": {
+    "$oid": "6088de0a50d71881403fe872"
+  },
+  "subjectname": "PCE",
+  "userstu1": "IIT2020099",
+  "namestu1": "KUNAL",
+  "namestu2": "TANU",
+  "namestu3": "KRISHNA",
+  "namestu4": "Akash",
+  "userstu2": "IIT2020219",
+  "userstu3": "IIT2020178",
+  "userstu4": "IIT2020001"
+},{
+  "_id": {
+    "$oid": "6088df9550d71881403fe873"
+  },
+  "subjectname": "DMI",
+  "userstu1": "IIT2018028",
+  "namestu1": "TARUN ",
+  "namestu2": "VIDHI",
+  "namestu3": "SHUBHAM ",
+  "namestu4": "NEHAL",
+  "userstu2": "IIT2018169",
+  "userstu3": "IIT2018200",
+  "userstu4": "IIT2018119"
+},{
+  "_id": {
+    "$oid": "6088dfaa50d71881403fe874"
+  },
+  "subjectname": "MP2",
+  "userstu1": "IIT2018028",
+  "namestu1": "TARUN ",
+  "namestu2": "VIDHI",
+  "namestu3": "SHUBHAM ",
+  "namestu4": "NEHAL",
+  "userstu2": "IIT2018169",
+  "userstu3": "IIT2018200",
+  "userstu4": "IIT2018119"
+},{
+  "_id": {
+    "$oid": "6088dfbf50d71881403fe875"
+  },
+  "subjectname": "ELE1",
+  "userstu1": "IIT2018028",
+  "namestu1": "TARUN ",
+  "namestu2": "VIDHI",
+  "namestu3": "SHUBHAM ",
+  "namestu4": "NEHAL",
+  "userstu2": "IIT2018169",
+  "userstu3": "IIT2018200",
+  "userstu4": "IIT2018119"
+},{
+  "_id": {
+    "$oid": "6088dfc950d71881403fe876"
+  },
+  "subjectname": "ELE2",
+  "userstu1": "IIT2018028",
+  "namestu1": "TARUN ",
+  "namestu2": "VIDHI",
+  "namestu3": "SHUBHAM ",
+  "namestu4": "NEHAL",
+  "userstu2": "IIT2018169",
+  "userstu3": "IIT2018200",
+  "userstu4": "IIT2018119"
+},{
+  "_id": {
+    "$oid": "6088dfd450d71881403fe877"
+  },
+  "subjectname": "ELE3",
+  "userstu1": "IIT2018028",
+  "namestu1": "TARUN ",
+  "namestu2": "VIDHI",
+  "namestu3": "SHUBHAM ",
+  "namestu4": "NEHAL",
+  "userstu2": "IIT2018169",
+  "userstu3": "IIT2018200",
+  "userstu4": "IIT2018119"
+}]

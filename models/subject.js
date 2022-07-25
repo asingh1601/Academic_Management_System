@@ -1,0 +1,53 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+userSchema = new Schema( {
+	
+	username: String,
+    sem1_sub1:String,
+	sem1_sub2:String,
+	sem1_sub3:String,
+	sem1_sub4:String,
+	sem1_sub5:String,
+	sem1_sub6:String,
+	sem2_sub1:String,
+	sem2_sub2:String,
+	sem2_sub3:String,
+	sem2_sub4:String,
+	sem2_sub5:String,
+	sem2_sub6:String,
+	sem3_sub1:String,
+	sem3_sub2:String,
+	sem3_sub3:String,
+	sem3_sub4:String,
+	sem3_sub5:String,
+	sem3_sub6:String,
+	sem4_sub1:String,
+	sem4_sub2:String,
+	sem4_sub3:String,
+	sem4_sub4:String,
+	sem4_sub5:String,
+	sem5_sub1:String,
+	sem5_sub2:String,
+	sem5_sub3:String,
+	sem5_sub4:String,
+	sem5_sub5:String,
+	sem5_mp:String,
+	sem6_sub:String,
+	sem6_mp2:String,
+	sem6_ele1:String,
+	sem6_ele2:String,
+	sem6_ele3:String,
+	subjectname: String,
+    userstu1:String,
+    namestu1:String,
+	userstu2:String,
+    namestu2:String,
+	userstu3:String,
+    namestu3:String,
+	userstu4:String,
+    namestu4:String
+}),
+Subject = mongoose.model('Subject', userSchema);
+
+module.exports = Subject;

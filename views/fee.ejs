@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css'>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .navbar {
+            background-color: #02283a;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #02283a;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        body {
+            background-color: #f9f9fa
+        }
+
+        .padding {
+            padding: 3rem !important
+        }
+
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            background-color: rgb(247, 252, 255)
+        }
+
+        .heading {
+            font-size: 20px;
+            font-weight: 600;
+            color: #3D5AFE
+        }
+
+        .line1 {
+            color: #000;
+            font-size: 12px
+        }
+
+        .line2 {
+            color: #000;
+            font-size: 12px
+        }
+
+        .line3 {
+            color: #000;
+            font-size: 12px
+        }
+
+        .cards {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin: 20px 20px;
+        }
+
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+
+
+        li {
+            background: #fff;
+            height: 40px;
+            line-height: 40px;
+            color: #666
+        }
+
+        li:nth-child(2n) {
+            background: #f7f7f7
+        }
+
+        span {
+            background: #e74c3c;
+            height: 40px;
+            margin-right: 20px;
+            text-align: center;
+            color: white;
+            width: 0;
+            display: inline-block;
+            transition: 0.2s linear;
+            opacity: 0
+        }
+
+        li:hover span {
+            width: 40px;
+            opacity: 1.0
+        }
+
+
+        input:focus {
+            background: #fff;
+            border: 3px solid #2980b9;
+            outline: none
+        }
+
+        #container {
+            width: 360px;
+            margin: 100px auto;
+            background: #f7f7f7;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1)
+        }
+
+        .completed {
+            color: gray;
+            text-decoration: line-through
+        }
+
+        li.nav-item {
+            background: none;
+        }
+        .cards:hover{
+            box-shadow: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+        <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large;">Fee Status</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/home"><i class="fas fa-home"></i></a>
+            </li>
+        </ul>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+
+        <img src="https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg" width="250px" height="250px">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="/stu_status" style="font-size: 22px;">
+              Status
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" onclick="openProfile()" href="#" style="font-size: 22px;"> -->
+            <a class="nav-link" href="/profile" style="font-size: 22px;">
+              Profile
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#" style="font-size: 22px;">
+              Course Registration
+            </a>
+          </li> -->
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"></h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/subject" style="font-size: 22px;">
+
+              Core Subjects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/course_coordinator_s" style="font-size: 22px;">
+              Course Coordinator
+            </a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="/result" style="font-size: 22px;">
+              Semester Results
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comp_subject" style="font-size: 22px;">
+              Complete Subject
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Clcik</a>-->
+
+    </div>
+  </div>
+
+    <div id="main">
+
+        <div class="main text-center mt-5">
+            <h6 class="heading"></h6>
+            <p class="text-info"></p>
+            <p class="text-info"></p>
+        </div>
+        <div class="container mt-4 d-flex justify-content-center">
+            <div class="row g-0">
+                <div class="col-md-6 border-right">
+                    <div class="cards">
+                        <div class="first bg-white p-4 text-center"> <img style="width: 300px; height: 200px;"
+                                src="https://www.investopedia.com/thmb/CzlRxiACzGUPHq2vgqpxcoV3bVo=/1200x800/filters:fill(auto,1)/fees-4e1dd6b8126d4570be2c2d193e04ad12.jpg" />
+                            <h6><b>Semester fees</b></h6>
+                            <p><%= fees %></p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 border-right">
+                    <div class="cards">
+                        <div class=" second bg-white p-4 text-center"> <img style="width: 300px; height: 200px;"
+                                src="https://cloudcoders.com.au/wp-content/uploads/paid-160126_960_720.png" />
+                            <h6><b>Fees paid</b></h6>
+                           <p><%= paidfee %></p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cards">
+                        <div class=" third bg-white p-4 text-center"> <img style="width: 300px; height: 200px;"
+                                src="https://everythinggoesdance.com/wp-content/uploads/2016/07/feesdue.png" />
+                            <h6><b>Fees Due</b></h6>
+                            <p><%= feedue %></p>
+                         
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cards">
+                        <div class=" third bg-white p-4 text-center"> <img style="width: 300px; height: 200px;"
+                                src="https://thumbs.dreamstime.com/b/word-late-fees-underlined-yellow-legal-pad-late-fees-yellow-legal-pad-101676316.jpg" />
+                            <h6><b>Late fees</b></h6>
+                            <p><%= latefee %></p>
+                         
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.welcome {
+  width: 536px;
+  color: rgba(2,40,58,1);
+  position: absolute;
+  top: 170px;
+  left: 80px;
+  font-family: Russo One;
+  font-weight: Regular;
+  font-size: 48px;
+  opacity: 1;
+  text-align: left;
+}
+.select {
+  width: 338px;
+  color: rgba(2,40,58,1);
+  position: absolute;
+  top: 350px;
+  left: 80px;
+  font-family: Roboto;
+  font-weight: Bold;
+  font-size: 48px;
+  opacity: 1;
+  text-align: left;
+}
+.welcome_bg {
+  width: 700px;
+  height: 100%;
+  background: url("welcome\ bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 850px;
+  overflow: hidden;
+}
+
+.student{
+        
+position: absolute;
+width: 150px;
+height: 45px;
+left: 84px;
+top: 450px;
+
+background: #02283A;
+border-radius: 10px;
+border: none;
+color: aliceblue;
+}
+.admin{
+        
+  position: absolute;
+  width: 150px;
+  height: 45px;
+  left: 300px;
+  top: 450px;
+  
+  background: #02283A;
+  border-radius: 10px;
+  border: none;
+  color: aliceblue;
+    }

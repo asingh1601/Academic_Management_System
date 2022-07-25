@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Result Modification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <style>
+        .navbar {
+            background-color: #02283a;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #02283a;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+
+        .padding {
+            padding: 3rem !important
+        }
+
+
+
+        .heading {
+            font-size: 40px;
+            margin-top: 35px;
+            margin-bottom: 30px;
+            padding-left: 20px
+        }
+
+        .card {
+            border-radius: 10px !important;
+            margin-top: 60px;
+            margin-bottom: 60px
+        }
+
+        .form-card {
+            margin-left: 20px;
+            margin-right: 20px
+        }
+
+        .form-card input,
+        .form-card textarea {
+            padding: 10px 15px 5px 15px;
+            border: none;
+            border: 1px solid lightgrey;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            margin-top: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: arial;
+            color: #2C3E50;
+            font-size: 14px;
+            letter-spacing: 1px
+        }
+
+        .form-card input:focus,
+        .form-card textarea:focus {
+            -moz-box-shadow: 0px 0px 0px 1.5px skyblue !important;
+            -webkit-box-shadow: 0px 0px 0px 1.5px skyblue !important;
+            box-shadow: 0px 0px 0px 1.5px skyblue !important;
+            font-weight: bold;
+            border: 1px solid #304FFE;
+            outline-width: 0
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            overflow: hidden
+        }
+
+        .input-group input {
+            position: relative;
+            height: 80px;
+            margin-left: 1px;
+            margin-right: 1px;
+            border-radius: 6px;
+            padding-top: 30px;
+            padding-left: 25px
+        }
+
+        .input-group label {
+            position: absolute;
+            height: 24px;
+            background: none;
+            border-radius: 6px;
+            line-height: 48px;
+            font-size: 15px;
+            color: gray;
+            width: 100%;
+            font-weight: 100;
+            padding-left: 25px
+        }
+
+        input:focus+label {
+            color: #304FFE
+        }
+
+
+
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
+
+        img {
+            border-radius: 5px
+        }
+
+        .radio-group {
+            position: relative;
+            margin-bottom: 25px
+        }
+
+        .radio {
+            display: inline-block;
+            border-radius: 6px;
+            box-sizing: border-box;
+            border: 2px solid lightgrey;
+            cursor: pointer;
+            margin: 12px 25px 12px 0px
+        }
+
+        .radio:hover {
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2)
+        }
+
+        .radio.selected {
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 155, 0.4);
+            border: 2px solid blue
+        }
+
+        .label-radio {
+            font-weight: bold;
+            color: #000000
+        }
+
+        @media only screen and (min-width: 1400px) {
+            p {
+                font-size: 14px
+            }
+        }
+
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #f9f9fa;
+        }
+
+        .student-profile .card {
+            border-radius: 10px;
+        }
+
+        .student-profile .card .card-header .profile_img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+
+        .student-profile .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .student-profile .card p {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .student-profile .table th,
+        .student-profile .table td {
+            font-size: 14px;
+            padding: 5px 10px;
+            color: #000;
+        }
+
+        body {
+            background-color: rgb(247, 252, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Academic Management System</a> -->
+        <button class="openbtn" onclick="openNav()"><i class="ic fa fa-bars"></i> </button>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color:White; font-size: x-large;">Student's Marks</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" onclick="Logout()" href="#"><i class="fas fa-power-off"></i> Sign out</a>
+            </li>
+        </ul>
+    </header>
+
+
+
+
+    <div id="main">
+        <!--Modify results-->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class=" col-lg-8 col-md-8">
+                    <div class="card p-3">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <h6 class="heading text-center">Modify Results</h6>
+                            </div>
+                        </div>
+                        <form action="/modify_result_2" class="form-card" method="post">
+
+
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <label>Roll Number</label> 
+                                   
+                                    <input type="text" name="username" placeholder="Roll Number" value=<%= username %> >
+                                       
+                                </div>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="40%" style="text-align: center;">Subject</th>
+                                        <th width="20%" style="text-align: center;"> C1</th>
+                                        <th width="20%" style="text-align: center;"> C2</th>
+                                        <th width="20%" style="text-align: center;"> C3</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= sub1 %></td>
+                                        <td width="20%">
+                                            <input type="number" name = "sub1_c1">
+                                           
+                                        </td>
+                                        <td width="20%">
+                                           
+                                            <input type="number" name="sub1_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub1_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= sub2 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="sub2_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub2_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub2_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= sub3 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="sub3_c1" >
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub3_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub3_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= sub4 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="sub4_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub4_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub4_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= sub5 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="sub5_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub5_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub5_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= sub6 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="sub6_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub6_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="sub6_c3">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="40%" style="text-align: center;">Electives</th>
+                                        <th width="20%" style="text-align: center;"> C1</th>
+                                        <th width="20%" style="text-align: center;"> C2</th>
+                                        <th width="20%" style="text-align: center;"> C3</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= ele1 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="ele1_c1">
+                                           
+                                        </td>
+                                        <td width="20%">
+                                           
+                                            <input type="number" name="ele1_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="ele1_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= ele2 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="ele2_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="ele2_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="ele2_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= ele3 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="ele3_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="ele3_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="ele3_c3">
+                                        </td>
+                                    </tr>
+                                   
+                                    
+
+                                </table>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="40%" style="text-align: center;">Mini Project</th>
+                                        <th width="20%" style="text-align: center;"> C1</th>
+                                        <th width="20%" style="text-align: center;"> C2</th>
+                                        <th width="20%" style="text-align: center;"> C3</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= mp1 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="mp1_c1">
+                                           
+                                        </td>
+                                        <td width="20%">
+                                           
+                                            <input type="number" name="mp1_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="mp1_c3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%" style="text-align: center;"><%= mp2 %></td>
+                                        <td width="20%">
+                                            <input type="number" name="mp2_c1">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="mp2_c2">
+                                        </td>
+                                        <td width="20%">
+                                            <input type="number" name="mp2_c3">
+                                        </td>
+                                    </tr>
+                                   
+                                   
+                                    
+
+                                </table>
+                            </div>
+                            <input type="submit" value="Change" class="btn btn-success">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+        function openNav() {
+            if (mySidebar.style.width == "0px") {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        }
+        function openResult() {
+            window.open("result.html", "_self");
+        }
+        function Logout() {
+            window.open("login.html", "_self");
+        }
+        function Home() {
+            window.open("Home.html", "_self");
+        }
+
+    </script>
+
+</body>
+
+</html>
